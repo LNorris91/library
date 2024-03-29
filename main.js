@@ -2,6 +2,7 @@ const libraryContainer = document.querySelector(".libraryContainer");
 const dialog = document.querySelector("dialog");
 
 const myLibrary = [];
+let counter = 0;
 
 function Book(title, author, pages, isRead) {
     this.title = title;
@@ -15,12 +16,23 @@ myLibrary.push(theHobbit)
 const deathOnTheNile = new Book('Death on the Nile', 'Agatha Christie', '288', true);
 myLibrary.push(deathOnTheNile)
 
-function addBookToLibrary(newBook) {
-    myLibrary.push(newBook)
+addLibraryToPage()
+
+function addBookToLibrary() {
+    const newBook = new Book(
+        document.getElementById("title").value,
+        document.getElementById("author").value,
+        document.getElementById("pages").value,
+        document.getElementById("read").value
+    )
+    dialog.close();
+    myLibrary.push(newBook);
+    addLibraryToPage();
 }
 
 function addLibraryToPage() {
     myLibrary.forEach(book => {
+        if (myLibrary.indexOf(book) >= counter) {
         const bookCard = document.createElement('div');
         bookCard.classList.add('bookCard');
 
@@ -36,6 +48,6 @@ function addLibraryToPage() {
 
         bookCard.append(bookTitle,bookAuthor,bookPages,bookRead);
         libraryContainer.appendChild(bookCard);
-})}
+        counter++
+}})}
 
-addLibraryToPage()
