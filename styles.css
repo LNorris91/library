@@ -1,0 +1,17 @@
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+h1 {
+    align-self: center;
+}
+.libraryContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.bookCard {
+    border: 1px solid black ;
+}
