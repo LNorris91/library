@@ -1,4 +1,5 @@
 const libraryContainer = document.querySelector(".libraryContainer");
+const dialog = document.querySelector("dialog");
 
 const myLibrary = [];
 
