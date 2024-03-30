@@ -1,6 +1,5 @@
 const libraryContainer = document.querySelector(".libraryContainer");
 const dialog = document.querySelector("dialog");
-// const removeBtn = document.querySelector(".removeBtn")
 
 const myLibrary = [];
 let counter = 0;
@@ -38,9 +37,13 @@ function addLibraryToPage() {
         const bookCard = document.createElement('div');
               bookCard.classList.add('bookCard');
         const bookTitle = document.createElement('div');
+              bookTitle.classList.add('bookTitle');
         const bookAuthor = document.createElement('div');
+              bookAuthor.classList.add('bookAuthor');
         const bookPages = document.createElement('div');
+              bookPages.classList.add('bookPages');
         const bookRead = document.createElement('div');
+              bookRead.classList.add('bookRead');
         const removeBtn = document.createElement('button');
               removeBtn.classList.add('removeBtn');
               removeBtn.addEventListener('click', remove)
@@ -48,16 +51,16 @@ function addLibraryToPage() {
               readStatus.classList.add('readStatus');
               readStatus.addEventListener('click', readUpdate);
         
-        bookTitle.textContent = (`Title: ${book.title}`);
-        bookAuthor.textContent = (`Author: ${book.author}`);
-        bookPages.textContent = (`Number of Pages: ${book.pages}`);
+        bookTitle.textContent = (`${book.title}`);
+        bookAuthor.textContent = (`${book.author}`);
+        bookPages.textContent = (`${book.pages} pages`);
         if (book.read == true) {
-            bookRead.textContent = ('Read');
+            bookRead.textContent = ('Yes');
         } else {
-            bookRead.textContent = ("Not Read");
+            bookRead.textContent = ("No");
         }
         removeBtn.textContent = ("X");
-        readStatus.textContent = ("read it yet?");
+        readStatus.textContent = ("Have you read it?");
 
         bookCard.append(bookTitle,bookAuthor,bookPages,bookRead,removeBtn,readStatus);
         libraryContainer.appendChild(bookCard);
@@ -72,10 +75,10 @@ function addLibraryToPage() {
         function readUpdate() {
             if (book.read === true) {
                 book.read = false;
-                bookRead.textContent = "Not Read"
+                bookRead.textContent = "No"
             } else {
                 book.read = true;
-                bookRead.textContent = "Read"
+                bookRead.textContent = "Yes"
             }
         }
 
